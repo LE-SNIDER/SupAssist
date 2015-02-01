@@ -33,27 +33,22 @@ namespace SupAssist
                 SelectCommand.Parameters["@user_name"].Value = textBoxUser.Text;
                 SelectCommand.Parameters["@password"].Value = textBoxPassword.Text;
 
-                MySqlDataReader monReader;
-
                 connexionDb.Open();
-                monReader = SelectCommand.ExecuteReader();
-                int count = 0;
+                MySqlDataReader dr = SelectCommand.ExecuteReader();
 
-                while (monReader.Read())
+                while (dr.Read())
                 {
-                    count = count + 1;
+                    if (dr.HasRows == true)
+                    {
+                        //MessageBox.Show("Ok");
+                        connexionDb.Close();
+                        FormClient FormClient = new FormClient();
+                        FormClient.Show(); // Affichage de la nouvelle fenêtre
+                        this.Owner = FormClient; // La Form2 devient fenêtre principal (pour pouvoir quitter l'application)
+                        this.Hide(); // On cache la FormAuthentification
+                    }
                 }
-                if (count == 1)
-                {
-                    //MessageBox.Show("Nom d'utilisateur et mot de passe correct", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    connexionDb.Close();
-                    FormClient f2 = new FormClient();
-                    f2.Show(); // Affichage de la nouvelle fenêtre
-                    this.Owner = f2; // La Form2 devient fenêtre principal (pour pouvoir quitter l'application)
-                    this.Hide(); // On cache la FormAuthentification
-
-                }
-                else if (textBoxUser.Text == "" || textBoxPassword.Text == "")
+                if (textBoxUser.Text == "" || textBoxPassword.Text == "")
                 {
                     MessageBox.Show("Nom d'utilisateur et/ou mot de passe manquant", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -61,13 +56,20 @@ namespace SupAssist
                 {
                     MessageBox.Show("Nom d'utilisateur et mot de passe identique", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
+                else if (dr.HasRows == false)
+                {
                     MessageBox.Show("Nom d'utilisateur et/ou mot de passe incorrect", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                connexionDb.Close();
+                }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message == "Unable to connect to any of the specified MySQL hosts.")
+                {
+                    // Traduction du message d'erreur envoyé par MySQL
+                    MessageBox.Show("Impossible de se connecter à la base de données\nVérifiez que XAMPP soit bien lancé\n\n" + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex.Message);
+                }
+                //MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

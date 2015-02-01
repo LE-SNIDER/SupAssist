@@ -75,17 +75,6 @@ namespace SupAssist
                     cmd.Parameters["@Ville"].Value = contact.Ville;
                     cmd.Parameters["@Telephone"].Value = contact.Telephone;
 
-
-                    /*
-                    // utilisation de l'objet contact passé en paramètre
-                    cmd.Parameters.AddWithValue("@Prenom", contact.Prenom);
-                    cmd.Parameters.AddWithValue("@Nom", contact.Nom);
-                    cmd.Parameters.AddWithValue("@Adresse", contact.Adresse);
-                    cmd.Parameters.AddWithValue("@Code_Postal", contact.Code_Postal);
-                    cmd.Parameters.AddWithValue("@Ville", contact.Ville);
-                    cmd.Parameters.AddWithValue("@Telephone", contact.Telephone);
-                    */
-
                     // Exécution de la commande SQL
                     cmd.ExecuteNonQuery();
 

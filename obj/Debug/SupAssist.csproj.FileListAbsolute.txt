@@ -1,5 +1,4 @@
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\bin\Debug\SupAssist.exe.config
-c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.csprojResolveAssemblyReference.cache
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.FormAuthentification.resources
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.Properties.Resources.resources
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.csproj.GenerateResource.Cache
@@ -14,3 +13,4 @@ C:\Users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist
 C:\Users\yanndemizieux\Desktop\SupAssist\bin\Debug\SupAssist.exe.config
 C:\Users\yanndemizieux\Desktop\SupAssist\obj\Debug\SupAssist.exe
 C:\Users\yanndemizieux\Desktop\SupAssist\obj\Debug\SupAssist.pdb
+C:\Users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.csprojResolveAssemblyReference.cache
