@@ -90,9 +90,10 @@ namespace SupAssist
                 }
             }
         }
-        public FormClient()
+        public FormClient(string Str_Value)
         {
             InitializeComponent();
+            labelRole.Text = "Connecté en tant que : " + Str_Value;
         }
         private void buttonEnregistrer_Click(object sender, EventArgs e)
         {
@@ -107,9 +108,9 @@ namespace SupAssist
                 contact.Prenom = textBoxPrenom.Text;
                 contact.Nom = textBoxNom.Text;
                 contact.Adresse = textBoxAdresse.Text;
-                contact.Code_Postal = textBoxCodePostal.Text;
+                contact.Code_Postal = maskedTextBoxCodePostal.Text;
                 contact.Ville = textBoxVille.Text;
-                contact.Telephone = textBoxTelephone.Text;
+                contact.Telephone = maskedTextBoxTelephone.Text;
 
                 // Création de l'objet Bdd pour l'intéraction avec la base de donnée MySQL
                 Bdd bdd = new Bdd();
@@ -153,25 +154,6 @@ namespace SupAssist
 
             // Fermeture de la connexion MySql
             cnx.Close();
-        }
-        private void textBoxCodePostal_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46) // Exclusion de touches : 8=Backspace ; 46=Delete
-            {
-                e.Handled = true;
-                MessageBox.Show("Veuillez entrer une valeur numérique", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-        }
-
-        private void textBoxTelephone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-            {
-                e.Handled = true;
-                MessageBox.Show("Veuillez entrer une valeur numérique", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
         }
     }
 }

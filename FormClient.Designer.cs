@@ -32,17 +32,18 @@
             this.buttonEnregistrer = new System.Windows.Forms.Button();
             this.labelNom = new System.Windows.Forms.Label();
             this.labelTelephone = new System.Windows.Forms.Label();
-            this.textBoxTelephone = new System.Windows.Forms.TextBox();
             this.labelPrenom = new System.Windows.Forms.Label();
             this.textBoxPrenom = new System.Windows.Forms.TextBox();
             this.labelAdresse = new System.Windows.Forms.Label();
             this.textBoxAdresse = new System.Windows.Forms.TextBox();
             this.labelCodePostal = new System.Windows.Forms.Label();
-            this.textBoxCodePostal = new System.Windows.Forms.TextBox();
             this.labelVille = new System.Windows.Forms.Label();
             this.textBoxVille = new System.Windows.Forms.TextBox();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.labelListeDesClients = new System.Windows.Forms.Label();
+            this.labelRole = new System.Windows.Forms.Label();
+            this.maskedTextBoxTelephone = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxCodePostal = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // textBoxNom
@@ -66,7 +67,7 @@
             // labelNom
             // 
             this.labelNom.AutoSize = true;
-            this.labelNom.Location = new System.Drawing.Point(12, 42);
+            this.labelNom.Location = new System.Drawing.Point(47, 41);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(29, 13);
             this.labelNom.TabIndex = 2;
@@ -75,25 +76,16 @@
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(12, 146);
+            this.labelTelephone.Location = new System.Drawing.Point(18, 145);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(58, 13);
             this.labelTelephone.TabIndex = 4;
             this.labelTelephone.Text = "Téléphone";
             // 
-            // textBoxTelephone
-            // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(82, 142);
-            this.textBoxTelephone.MaxLength = 10;
-            this.textBoxTelephone.Name = "textBoxTelephone";
-            this.textBoxTelephone.Size = new System.Drawing.Size(190, 20);
-            this.textBoxTelephone.TabIndex = 5;
-            this.textBoxTelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelephone_KeyPress);
-            // 
             // labelPrenom
             // 
             this.labelPrenom.AutoSize = true;
-            this.labelPrenom.Location = new System.Drawing.Point(12, 16);
+            this.labelPrenom.Location = new System.Drawing.Point(33, 15);
             this.labelPrenom.Name = "labelPrenom";
             this.labelPrenom.Size = new System.Drawing.Size(43, 13);
             this.labelPrenom.TabIndex = 6;
@@ -109,7 +101,7 @@
             // labelAdresse
             // 
             this.labelAdresse.AutoSize = true;
-            this.labelAdresse.Location = new System.Drawing.Point(12, 68);
+            this.labelAdresse.Location = new System.Drawing.Point(31, 67);
             this.labelAdresse.Name = "labelAdresse";
             this.labelAdresse.Size = new System.Drawing.Size(45, 13);
             this.labelAdresse.TabIndex = 8;
@@ -125,25 +117,16 @@
             // labelCodePostal
             // 
             this.labelCodePostal.AutoSize = true;
-            this.labelCodePostal.Location = new System.Drawing.Point(12, 94);
+            this.labelCodePostal.Location = new System.Drawing.Point(12, 93);
             this.labelCodePostal.Name = "labelCodePostal";
             this.labelCodePostal.Size = new System.Drawing.Size(64, 13);
             this.labelCodePostal.TabIndex = 10;
             this.labelCodePostal.Text = "Code Postal";
             // 
-            // textBoxCodePostal
-            // 
-            this.textBoxCodePostal.Location = new System.Drawing.Point(82, 90);
-            this.textBoxCodePostal.MaxLength = 5;
-            this.textBoxCodePostal.Name = "textBoxCodePostal";
-            this.textBoxCodePostal.Size = new System.Drawing.Size(190, 20);
-            this.textBoxCodePostal.TabIndex = 3;
-            this.textBoxCodePostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodePostal_KeyPress);
-            // 
             // labelVille
             // 
             this.labelVille.AutoSize = true;
-            this.labelVille.Location = new System.Drawing.Point(12, 120);
+            this.labelVille.Location = new System.Drawing.Point(50, 119);
             this.labelVille.Name = "labelVille";
             this.labelVille.Size = new System.Drawing.Size(26, 13);
             this.labelVille.TabIndex = 12;
@@ -170,11 +153,36 @@
             // labelListeDesClients
             // 
             this.labelListeDesClients.AutoSize = true;
-            this.labelListeDesClients.Location = new System.Drawing.Point(12, 203);
+            this.labelListeDesClients.Location = new System.Drawing.Point(12, 202);
             this.labelListeDesClients.Name = "labelListeDesClients";
             this.labelListeDesClients.Size = new System.Drawing.Size(82, 13);
             this.labelListeDesClients.TabIndex = 14;
             this.labelListeDesClients.Text = "Liste des clients";
+            // 
+            // labelRole
+            // 
+            this.labelRole.AutoSize = true;
+            this.labelRole.Location = new System.Drawing.Point(12, 239);
+            this.labelRole.Name = "labelRole";
+            this.labelRole.Size = new System.Drawing.Size(110, 13);
+            this.labelRole.TabIndex = 15;
+            this.labelRole.Text = "Connecté en tant que";
+            // 
+            // maskedTextBoxTelephone
+            // 
+            this.maskedTextBoxTelephone.Location = new System.Drawing.Point(82, 142);
+            this.maskedTextBoxTelephone.Mask = "00 00 00 00 00";
+            this.maskedTextBoxTelephone.Name = "maskedTextBoxTelephone";
+            this.maskedTextBoxTelephone.Size = new System.Drawing.Size(190, 20);
+            this.maskedTextBoxTelephone.TabIndex = 5;
+            // 
+            // maskedTextBoxCodePostal
+            // 
+            this.maskedTextBoxCodePostal.Location = new System.Drawing.Point(82, 90);
+            this.maskedTextBoxCodePostal.Mask = "00000";
+            this.maskedTextBoxCodePostal.Name = "maskedTextBoxCodePostal";
+            this.maskedTextBoxCodePostal.Size = new System.Drawing.Size(190, 20);
+            this.maskedTextBoxCodePostal.TabIndex = 3;
             // 
             // FormClient
             // 
@@ -182,18 +190,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.maskedTextBoxCodePostal);
+            this.Controls.Add(this.maskedTextBoxTelephone);
+            this.Controls.Add(this.labelRole);
             this.Controls.Add(this.labelListeDesClients);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.labelVille);
             this.Controls.Add(this.textBoxVille);
             this.Controls.Add(this.labelCodePostal);
-            this.Controls.Add(this.textBoxCodePostal);
             this.Controls.Add(this.labelAdresse);
             this.Controls.Add(this.textBoxAdresse);
             this.Controls.Add(this.labelPrenom);
             this.Controls.Add(this.textBoxPrenom);
             this.Controls.Add(this.labelTelephone);
-            this.Controls.Add(this.textBoxTelephone);
             this.Controls.Add(this.labelNom);
             this.Controls.Add(this.buttonEnregistrer);
             this.Controls.Add(this.textBoxNom);
@@ -211,16 +220,17 @@
         private System.Windows.Forms.Button buttonEnregistrer;
         private System.Windows.Forms.Label labelNom;
         private System.Windows.Forms.Label labelTelephone;
-        private System.Windows.Forms.TextBox textBoxTelephone;
         private System.Windows.Forms.Label labelPrenom;
         private System.Windows.Forms.TextBox textBoxPrenom;
         private System.Windows.Forms.Label labelAdresse;
         private System.Windows.Forms.TextBox textBoxAdresse;
         private System.Windows.Forms.Label labelCodePostal;
-        private System.Windows.Forms.TextBox textBoxCodePostal;
         private System.Windows.Forms.Label labelVille;
         private System.Windows.Forms.TextBox textBoxVille;
         private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.Label labelListeDesClients;
+        private System.Windows.Forms.Label labelRole;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTelephone;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCodePostal;
     }
 }

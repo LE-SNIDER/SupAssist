@@ -38,11 +38,13 @@ namespace SupAssist
 
                 while (dr.Read())
                 {
+                    string role = dr["role"].ToString();
+                    string prenom_nom = dr["prenom"].ToString() + " " + dr["nom"].ToString();
                     if (dr.HasRows == true)
                     {
-                        //MessageBox.Show("Ok");
+                        MessageBox.Show("Connecté en tant que : " + prenom_nom + "\nRôle : " + role);
                         connexionDb.Close();
-                        FormClient FormClient = new FormClient();
+                        FormClient FormClient = new FormClient(role);
                         FormClient.Show(); // Affichage de la nouvelle fenêtre
                         this.Owner = FormClient; // La Form2 devient fenêtre principal (pour pouvoir quitter l'application)
                         this.Hide(); // On cache la FormAuthentification
