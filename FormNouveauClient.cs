@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace SupAssist
 {
-    public partial class FormClient : Form
+    public partial class FormNouveauClient : Form
     {
         public class Contact
         {
@@ -22,6 +22,7 @@ namespace SupAssist
             public string Code_Postal { get; set; }
             public string Ville { get; set; }
             public string Telephone { get; set; }
+            public string Email { get; set; }
 
             // Constructeur
             public Contact()
@@ -57,7 +58,7 @@ namespace SupAssist
                     MySqlCommand cmd = this.connection.CreateCommand();
 
                     // Requête SQL
-                    cmd.CommandText = "INSERT INTO client (Prenom, Nom, Adresse, Code_Postal, Ville, Telephone) VALUES (@Prenom, @Nom, @Adresse, @Code_Postal, @Ville, @Telephone)";
+                    cmd.CommandText = "INSERT INTO client (Prenom, Nom, Adresse, Code_Postal, Ville, Telephone, Email) VALUES (@Prenom, @Nom, @Adresse, @Code_Postal, @Ville, @Telephone, @Email)";
 
                     //Création et décalartion des paramètres 
                     cmd.Parameters.Add(new MySqlParameter("@Prenom", MySqlDbType.VarChar, 64));
@@ -66,6 +67,7 @@ namespace SupAssist
                     cmd.Parameters.Add(new MySqlParameter("@Code_Postal", MySqlDbType.VarChar, 5));
                     cmd.Parameters.Add(new MySqlParameter("@Ville", MySqlDbType.VarChar, 64));
                     cmd.Parameters.Add(new MySqlParameter("@Telephone", MySqlDbType.VarChar, 10));
+                    cmd.Parameters.Add(new MySqlParameter("@Email", MySqlDbType.VarChar, 255));
 
                     //Attribution des valeurs aux paramètres 
                     cmd.Parameters["@Prenom"].Value = contact.Prenom;
@@ -74,6 +76,7 @@ namespace SupAssist
                     cmd.Parameters["@Code_Postal"].Value = contact.Code_Postal;
                     cmd.Parameters["@Ville"].Value = contact.Ville;
                     cmd.Parameters["@Telephone"].Value = contact.Telephone;
+                    cmd.Parameters["@Email"].Value = contact.Email;
 
                     // Exécution de la commande SQL
                     cmd.ExecuteNonQuery();
@@ -90,10 +93,9 @@ namespace SupAssist
                 }
             }
         }
-        public FormClient(string Str_Value)
+        public FormNouveauClient()
         {
             InitializeComponent();
-            labelRole.Text = "Connecté en tant que : " + Str_Value;
         }
         private void buttonEnregistrer_Click(object sender, EventArgs e)
         {
@@ -111,6 +113,7 @@ namespace SupAssist
                 contact.Code_Postal = maskedTextBoxCodePostal.Text;
                 contact.Ville = textBoxVille.Text;
                 contact.Telephone = maskedTextBoxTelephone.Text;
+                contact.Email = textBoxEmail.Text;
 
                 // Création de l'objet Bdd pour l'intéraction avec la base de donnée MySQL
                 Bdd bdd = new Bdd();
@@ -120,40 +123,9 @@ namespace SupAssist
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void buttonAnnuler_Click(object sender, EventArgs e)
         {
-            //Objet de connexion à la base de donnée
-            MySqlConnection cnx = new MySqlConnection();
-            // Chaine de Connexion
-            cnx.ConnectionString = "SERVER=127.0.0.1; DATABASE=supassist; UID=root; PASSWORD=";
-
-            // Objet de commande
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT ID, Prenom, Nom, Adresse, Code_Postal, Ville, Telephone FROM client";
-            cmd.Connection = cnx;
-
-            // Déclaration DataReader
-            MySqlDataReader dr = null;
-
-            //Ouverture de Connexion MySql
-            cnx.Open();
-
-            // Liaison DataReader avec la Commande (requete)
-            dr = cmd.ExecuteReader();
-
-            // Tant qu'il y'a des lignes d'enregistrement        
-            while (dr.Read())
-            {
-                // Instanciation d'un ListViewItem
-                ComboBox lvi = new ComboBox();
-                lvi.Text = dr[2].ToString();
-
-                // Push du ListViewItem dans le controle ListView
-                comboBoxClient.Items.Add(lvi.Text);
-            }
-
-            // Fermeture de la connexion MySql
-            cnx.Close();
+            this.Close();
         }
     }
 }

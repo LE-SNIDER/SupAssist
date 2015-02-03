@@ -9,8 +9,11 @@ c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\bin\Debug\MySql.Data.dll
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\bin\Debug\MySql.Data.Entity.dll
 c:\users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\bin\Debug\MySql.Web.dll
-C:\Users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.FormClient.resources
 C:\Users\yanndemizieux\Desktop\SupAssist\bin\Debug\SupAssist.exe.config
 C:\Users\yanndemizieux\Desktop\SupAssist\obj\Debug\SupAssist.exe
 C:\Users\yanndemizieux\Desktop\SupAssist\obj\Debug\SupAssist.pdb
-C:\Users\yanndemizieux\documents\visual studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.csprojResolveAssemblyReference.cache
+C:\Users\yanndemizieux\Documents\Visual Studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.FormAccueil.resources
+C:\Users\yanndemizieux\Documents\Visual Studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.UserControlConnexion.resources
+C:\Users\yanndemizieux\Documents\Visual Studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.csprojResolveAssemblyReference.cache
+C:\Users\yanndemizieux\Documents\Visual Studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.FormNouveauClient.resources
+C:\Users\yanndemizieux\Documents\Visual Studio 2015\Projects\SupAssist\SupAssist\obj\Debug\SupAssist.UserControlNouveauClient.resources

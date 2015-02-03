@@ -40,27 +40,40 @@ namespace SupAssist
                 {
                     string role = dr["role"].ToString();
                     string prenom_nom = dr["prenom"].ToString() + " " + dr["nom"].ToString();
+
                     if (dr.HasRows == true)
                     {
-                        MessageBox.Show("Connecté en tant que : " + prenom_nom + "\nRôle : " + role);
+                        //MessageBox.Show("Connecté en tant que : " + prenom_nom + "\nRôle : " + role);
                         connexionDb.Close();
-                        FormClient FormClient = new FormClient(role);
-                        FormClient.Show(); // Affichage de la nouvelle fenêtre
-                        this.Owner = FormClient; // La Form2 devient fenêtre principal (pour pouvoir quitter l'application)
+                        FormAccueil FormAccueil = new FormAccueil(prenom_nom + " (" + role + ")");
+                        FormAccueil.Show(); // Affichage de la nouvelle fenêtre
+                        this.Owner = FormAccueil; // La Form2 devient fenêtre principal (pour pouvoir quitter l'application)
                         this.Hide(); // On cache la FormAuthentification
                     }
                 }
-                if (textBoxUser.Text == "" || textBoxPassword.Text == "")
+                if (textBoxUser.Text == "")
                 {
-                    MessageBox.Show("Nom d'utilisateur et/ou mot de passe manquant", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nom d'utilisateur manquant", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBoxUser.Select();
+                }
+                else if (textBoxPassword.Text == "")
+                {
+                    MessageBox.Show("Mot de passe manquant", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBoxPassword.Select();
                 }
                 else if (textBoxUser.Text == textBoxPassword.Text)
                 {
                     MessageBox.Show("Nom d'utilisateur et mot de passe identique", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBoxUser.Select();
+                    textBoxUser.SelectionStart = 0;
+                    textBoxUser.SelectionLength = textBoxUser.Text.Length;
                 }
                 else if (dr.HasRows == false)
                 {
                     MessageBox.Show("Nom d'utilisateur et/ou mot de passe incorrect", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxPassword.Select();
+                    textBoxPassword.SelectionStart = 0;
+                    textBoxPassword.SelectionLength = textBoxPassword.Text.Length;
                 }
             }
             catch(Exception ex)

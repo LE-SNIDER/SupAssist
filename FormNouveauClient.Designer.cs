@@ -1,6 +1,6 @@
 ﻿namespace SupAssist
 {
-    partial class FormClient
+    partial class FormNouveauClient
     {
         /// <summary>
         /// Required designer variable.
@@ -39,11 +39,11 @@
             this.labelCodePostal = new System.Windows.Forms.Label();
             this.labelVille = new System.Windows.Forms.Label();
             this.textBoxVille = new System.Windows.Forms.TextBox();
-            this.comboBoxClient = new System.Windows.Forms.ComboBox();
-            this.labelListeDesClients = new System.Windows.Forms.Label();
-            this.labelRole = new System.Windows.Forms.Label();
             this.maskedTextBoxTelephone = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxCodePostal = new System.Windows.Forms.MaskedTextBox();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.buttonAnnuler = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxNom
@@ -59,7 +59,7 @@
             this.buttonEnregistrer.Location = new System.Drawing.Point(197, 226);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(75, 23);
-            this.buttonEnregistrer.TabIndex = 6;
+            this.buttonEnregistrer.TabIndex = 7;
             this.buttonEnregistrer.Text = "Enregistrer";
             this.buttonEnregistrer.UseVisualStyleBackColor = true;
             this.buttonEnregistrer.Click += new System.EventHandler(this.buttonEnregistrer_Click);
@@ -140,34 +140,6 @@
             this.textBoxVille.Size = new System.Drawing.Size(190, 20);
             this.textBoxVille.TabIndex = 4;
             // 
-            // comboBoxClient
-            // 
-            this.comboBoxClient.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxClient.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(100, 199);
-            this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(172, 21);
-            this.comboBoxClient.TabIndex = 13;
-            // 
-            // labelListeDesClients
-            // 
-            this.labelListeDesClients.AutoSize = true;
-            this.labelListeDesClients.Location = new System.Drawing.Point(12, 202);
-            this.labelListeDesClients.Name = "labelListeDesClients";
-            this.labelListeDesClients.Size = new System.Drawing.Size(82, 13);
-            this.labelListeDesClients.TabIndex = 14;
-            this.labelListeDesClients.Text = "Liste des clients";
-            // 
-            // labelRole
-            // 
-            this.labelRole.AutoSize = true;
-            this.labelRole.Location = new System.Drawing.Point(12, 239);
-            this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(110, 13);
-            this.labelRole.TabIndex = 15;
-            this.labelRole.Text = "Connecté en tant que";
-            // 
             // maskedTextBoxTelephone
             // 
             this.maskedTextBoxTelephone.Location = new System.Drawing.Point(82, 142);
@@ -175,6 +147,7 @@
             this.maskedTextBoxTelephone.Name = "maskedTextBoxTelephone";
             this.maskedTextBoxTelephone.Size = new System.Drawing.Size(190, 20);
             this.maskedTextBoxTelephone.TabIndex = 5;
+            this.maskedTextBoxTelephone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // maskedTextBoxCodePostal
             // 
@@ -184,17 +157,43 @@
             this.maskedTextBoxCodePostal.Size = new System.Drawing.Size(190, 20);
             this.maskedTextBoxCodePostal.TabIndex = 3;
             // 
-            // FormClient
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(44, 171);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(32, 13);
+            this.labelEmail.TabIndex = 16;
+            this.labelEmail.Text = "Email";
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(82, 168);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEmail.TabIndex = 6;
+            // 
+            // buttonAnnuler
+            // 
+            this.buttonAnnuler.Location = new System.Drawing.Point(13, 226);
+            this.buttonAnnuler.Name = "buttonAnnuler";
+            this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.buttonAnnuler.TabIndex = 8;
+            this.buttonAnnuler.Text = "Annuler";
+            this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
+            // 
+            // FormNouveauClient
             // 
             this.AcceptButton = this.buttonEnregistrer;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.buttonAnnuler);
+            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.maskedTextBoxCodePostal);
             this.Controls.Add(this.maskedTextBoxTelephone);
-            this.Controls.Add(this.labelRole);
-            this.Controls.Add(this.labelListeDesClients);
-            this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.labelVille);
             this.Controls.Add(this.textBoxVille);
             this.Controls.Add(this.labelCodePostal);
@@ -206,9 +205,10 @@
             this.Controls.Add(this.labelNom);
             this.Controls.Add(this.buttonEnregistrer);
             this.Controls.Add(this.textBoxNom);
-            this.Name = "FormClient";
-            this.Text = "Client";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "FormNouveauClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Nouveau client";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,10 +227,10 @@
         private System.Windows.Forms.Label labelCodePostal;
         private System.Windows.Forms.Label labelVille;
         private System.Windows.Forms.TextBox textBoxVille;
-        private System.Windows.Forms.ComboBox comboBoxClient;
-        private System.Windows.Forms.Label labelListeDesClients;
-        private System.Windows.Forms.Label labelRole;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTelephone;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCodePostal;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Button buttonAnnuler;
     }
 }
