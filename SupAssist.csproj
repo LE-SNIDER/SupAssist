@@ -170,6 +170,8 @@
     <None Include="Resources\supassist_512.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ticket_512.png" />
+    <None Include="Resources\user_512.png" />
     <Content Include="supassist.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

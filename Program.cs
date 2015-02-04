@@ -16,8 +16,8 @@ namespace SupAssist
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAuthentification());
-            //Application.Run(new FormAccueil("TEST"));
+            //Application.Run(new FormAuthentification());
+            Application.Run(new FormAccueil("TEST"));
         }
     }
 }
